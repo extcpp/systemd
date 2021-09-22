@@ -20,3 +20,6 @@ endif()
 target_compile_features(ext-systemd INTERFACE cxx_std_17)
 add_library(ext::systemd ALIAS ext-systemd)
 
+if(EXTSYSTEMD_EXAMPLES)
+    add_subdirectory(examples)
+endif()
