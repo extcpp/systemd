@@ -1,0 +1,12 @@
+[Unit]
+Description=ext systemd sample service
+
+[Service]
+Type=notify
+TimeoutAbortSec=5
+WatchdogSec=15
+Restart=on-failure
+ExecStart=/home/extcpp/repos/extcpp/systemd-build/examples/ext-systemd-example-daemon
+
+[Install]
+WantedBy=multi-user.target
