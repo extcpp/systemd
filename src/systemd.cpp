@@ -1,7 +1,7 @@
 #include <ext/systemd.hpp>
 
-namespace ext::systemd {
-#if __has_include(<systemd/sd-daemon.h>)
+namespace ext { namespace systemd {
+#ifdef EXT_HAS_SYSTEMD
 
 extern "C" {
 	#include <systemd/sd-daemon.h>
@@ -41,7 +41,7 @@ bool notify_error(std::string const& reason, int errno){
     return sd_notify(0 /*unset_environment*/, block.data()) > 0;
 }
 
-#else // not __has_include(<systemd/sd-daemon.h>)
+#else // not EXT_HAS_SYSTEMD
 
 bool active() {
     return false;
@@ -67,6 +67,6 @@ bool notify_error(std::string const& reason, int errno){
     return true;
 }
 
-#endif // __has_include(<systemd/sd-daemon.h>)
+#endif // EXT_HAS_SYSTEMD
 
-} // namespace ext::systemd
+}} // namespace ext::systemd

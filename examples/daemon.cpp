@@ -9,7 +9,11 @@ using namespace std::literals::chrono_literals;
 
 // Simulate a daemon that sends notifications to systemd
 int main() {
+#ifdef EXT_HAS_SYSTEMD
     std::cout << "systemd code is active: " << ext::systemd::active() << std::endl;
+#else
+    std::cout << "systemd support is not even compiled in" << std::endl;
+#endif
 
     // Simulate daemon startup
     std::cout << "starting sample daemon:" << std::endl;
