@@ -1,3 +1,5 @@
+// Copyright - 2021 - Jan Christoph Uhde <Jan@UhdeJC.com>
+
 #include <ext/systemd.hpp>
 
 namespace ext { namespace systemd {
