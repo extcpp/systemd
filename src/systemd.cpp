@@ -2,14 +2,16 @@
 
 #include <ext/systemd.hpp>
 
-namespace ext { namespace systemd {
 #ifdef EXT_SYSTEMD_AVAILABLE
-
 extern "C" {
 	#include <systemd/sd-daemon.h>
     #include <string.h>
 }
+#endif
 
+namespace ext { namespace systemd {
+
+#ifdef EXT_SYSTEMD_AVAILABLE
 bool active() {
     return true;
 }
