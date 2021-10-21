@@ -3,7 +3,7 @@
 #include <ext/systemd.hpp>
 
 namespace ext { namespace systemd {
-#ifdef EXT_HAS_SYSTEMD
+#ifdef EXT_SYSTEMD_AVAILABLE
 
 extern "C" {
 	#include <systemd/sd-daemon.h>
@@ -43,7 +43,7 @@ bool notify_error(std::string const& reason, int errno){
     return sd_notify(0 /*unset_environment*/, block.data()) > 0;
 }
 
-#else // not EXT_HAS_SYSTEMD
+#else // not EXT_SYSTEMD_AVAILABLE
 
 bool active() {
     return false;
@@ -69,6 +69,6 @@ bool notify_error(std::string const& reason, int errno){
     return true;
 }
 
-#endif // EXT_HAS_SYSTEMD
+#endif // EXT_SYSTEMD_AVAILABLE
 
 }} // namespace ext::systemd

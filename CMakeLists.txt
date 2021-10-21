@@ -55,7 +55,7 @@ if(real_systemd_FOUND)
         target_link_libraries(ext-systemd PRIVATE PkgConfig::real_systemd)
     endif()
 
-    target_compile_definitions(ext-systemd PUBLIC EXT_HAS_SYSTEMD=1)
+    target_compile_definitions(ext-systemd PUBLIC EXT_SYSTEMD_AVAILABLE=1)
 else()
     message(NOTICE "systemd NOT found")
 endif()
